@@ -3,8 +3,9 @@ const express = require('express')
 const db = require('./dataBase/connect')
 // import database
 const usersapi = require('./routes/usersAPI')
-const postesapi = require('./routes/postsAPI')
+const todosapi = require('./routes/todosAPI')
 // import routes
+
 const bodyParser = require('body-parser')
 const app = express()
 const port = 3000
@@ -17,9 +18,10 @@ app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
-  })
+})
 app.use('/api', usersapi )
-app.use('/api', postesapi )
+app.use('/api', todosapi )
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
